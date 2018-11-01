@@ -27,7 +27,7 @@ volatile bool new_message = false;
 
 //sending data variables
 volatile uint8_t sended = 0;
-char buffor_toSend[10];
+char bufferToSend[40];// cant? get size defined in header
 volatile bool is_sending_end = true;
 volatile bool ready_to_send = false;
 

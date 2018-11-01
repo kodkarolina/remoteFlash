@@ -14,6 +14,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "UART.h"
+#include "BtParser.h"
 
 void led_init(void){
 	DDRC |= (1<<PORTC3);
@@ -36,12 +37,14 @@ int main(void)
 	usart_init(); //initiate USART module (RS-232)
 	sei();        //switch on global interruption
 	
+	uint16_t timerSettings[7];//0-counter settings for photo 1-timer overflow counter 2-prescaler settings__3,4,5-same but for delay__6- amount of photos.
 	
 	while(1){
-		
 		if (FRAME_is_RDY){
 			led_on();
-			send_message(*buffer);
+			if(buffer[0]==0x73)
+			parse_STypeInput(buffer,timerSettings);//buffer present?
+			send_message(buffer);// buffer will be corrupted after parsing
 			FRAME_is_RDY = false;
 			}
 			

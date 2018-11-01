@@ -157,6 +157,12 @@
     <OutputType>Executable</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BtParser.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="BtParser.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>

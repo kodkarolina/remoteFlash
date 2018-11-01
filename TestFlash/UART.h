@@ -18,7 +18,7 @@
 #define start_cmd 1
 #define stop_cmd 2
 #define status_cmd 3
-#define frame_length 10
+#define frame_length 10//??
 
 //receiving data variables 
 extern volatile bool FRAME_is_RDY; //Inform if frame is ready to reading
@@ -30,7 +30,7 @@ volatile bool new_message;
 
 //sending data variables
 
-extern char buffor_toSend[];
+extern char bufferToSend[];
 extern volatile bool is_sending_end;
 extern volatile bool ready_to_send;
 
